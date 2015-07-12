@@ -3,6 +3,13 @@ Utilities for theme dependent bundled requirements.
 
 # Example
 
+Configure your requirements in a yml file, and load them by calling `RequirementsHelper::load_requirements();`
+in `Page_Controller::init()`.
+
+Example yml file - you could place it in `mysite/_config/requirements.yml`:
+
+
+
 ```yml
 ---
 name: requirements
