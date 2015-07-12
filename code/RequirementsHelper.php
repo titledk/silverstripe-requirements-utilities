@@ -40,7 +40,7 @@ class RequirementsHelper extends Object {
 		}
 		//print css
 		if (isset($r['css']['print'])) {
-			self::css($r['css']['print']);
+			self::css($r['css']['print'], 'print');
 		}
 		//Debug::dump($r);
 	}
