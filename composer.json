@@ -1,0 +1,20 @@
+{
+	"name": "titledk/silverstripe-requirements-utilities",
+	"description": "Utilities for theme dependent bundled requirements",
+	"type": "silverstripe-module",
+	"homepage": "https://github.com/titledk/silverstripe-requirements-utilities",
+	"keywords": ["silverstripe", "requirements", "css", "javascript"],
+	"license": "MIT",
+	"authors": [
+		{"name": "Anselm Christophersen","email": "ac@anselm.dk"}
+	],
+	"support": {
+		"issues": "https://github.com/titledk/silverstripe-requirements-utilities"
+	},
+	"require": {
+		"silverstripe/framework": "~3.1"
+	},
+	"extra": {
+		"installer-name": "requirements-utilities"
+	}
+}
