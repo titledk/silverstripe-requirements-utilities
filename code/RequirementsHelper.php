@@ -7,7 +7,7 @@
  * @date   July 2015
  */
 class RequirementsHelper extends Object {
-	
+
 	private static $theme = null;
 	private static $theme_dir = null;
 
@@ -20,20 +20,20 @@ class RequirementsHelper extends Object {
 		$theme = Config::inst()->get('SSViewer', 'theme');
 		self::$theme = $theme;
 		self::$theme_dir = 'themes/' . $theme;
-		
+
 		$r = self::config()->$theme;
-		
+
 		//Debug::dump($r);
-		
-		
+
+
 		if (isset($r['javascript-combined'])) {
 			self::process_combined($r['javascript-combined'], 'javascript');
 		}
-		
+
 		if (isset($r['css-combined'])) {
 			self::process_combined($r['css-combined'], 'css');
 		}
-		
+
 		//screen css
 		if (isset($r['css']['screen'])) {
 			self::css($r['css']['screen']);
@@ -45,7 +45,7 @@ class RequirementsHelper extends Object {
 		//Debug::dump($r);
 	}
 
-	
+
 	/**
 	 * Requiring the combined js/css files- can be separate library files
 	 * @param array $libArr
@@ -57,11 +57,11 @@ class RequirementsHelper extends Object {
 		//Defining library files
 		foreach ($libArr as $lib => $arr) {
 			$files = array();
-			
+
 			foreach ($arr as $str) {
 				$files[] = self::replace_vars($str);
 			}
-			
+
 			foreach ($files as $f) {
 				if ($type == 'javascript') {
 					Requirements::javascript($f);
@@ -75,7 +75,7 @@ class RequirementsHelper extends Object {
 			} elseif ($type == 'css') {
 				$libName = "$theme/$lib.css";
 			}
-			
+
 			Requirements::combine_files($libName, $files);
 		}
 	}
@@ -99,7 +99,7 @@ class RequirementsHelper extends Object {
 	private static function replace_vars($str) {
 		$themeDir = self::$theme_dir;
 		$str = str_replace('$ThemeDir', $themeDir, $str);
-		
+
 		return $str;
 	}
 }
